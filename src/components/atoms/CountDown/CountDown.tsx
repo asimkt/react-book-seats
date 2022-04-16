@@ -36,12 +36,9 @@ export const CountdownTimer = ({
           <p>:</p>
         </>
       ) : null}
-      <DateTimeDisplay value={minutes} isEnding={minutes <= 1} />
+      <DateTimeDisplay value={minutes} isEnding={minutes < 1} />
       <p>:</p>
-      <DateTimeDisplay
-        value={seconds}
-        isEnding={seconds <= 10 && minutes <= 1}
-      />
+      <DateTimeDisplay value={seconds} isEnding={minutes < 1} />
     </div>
   );
 };

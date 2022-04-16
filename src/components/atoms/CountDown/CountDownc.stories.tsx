@@ -36,3 +36,14 @@ TenSeconds.args = {
     expiredCalled = true;
   },
 };
+
+const ONEMIN3_SECONDS_IN_MS = 63 * 1000;
+const dateTimeAfterOneMinThreeSecs = NOW_IN_MS + ONEMIN3_SECONDS_IN_MS;
+export const OneMinThreeSecs = Template.bind({});
+OneMinThreeSecs.args = {
+  targetDate: dateTimeAfterOneMinThreeSecs,
+  onExpire: () => {
+    !expiredCalled && console.log('expired');
+    expiredCalled = true;
+  },
+};
