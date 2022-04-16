@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ImageGrid } from 'components/molecules/ImageGrid';
 import { Header } from 'components/organisms/Header';
 import { BaseImage } from 'types';
+import { BrowserRouter } from 'react-router-dom';
 
 import { BaseLayout } from '.';
 
@@ -26,13 +27,18 @@ export default {
 } as ComponentMeta<typeof BaseLayout>;
 
 const Template: ComponentStory<typeof BaseLayout> = args => (
-  <BaseLayout {...args} />
+  <BrowserRouter>
+    <BaseLayout {...args} />
+  </BrowserRouter>
 );
 
+const SHeader = () => <h1>Header</h1>;
+
+const SMain = () => <p>Main</p>;
 export const Default = Template.bind({});
 Default.args = {
-  header: 'Header',
-  main: 'Main',
+  header: <SHeader />,
+  main: <SMain />,
 };
 
 export const WithComponents = Template.bind({});
