@@ -1,11 +1,11 @@
 import { Header } from 'components/organisms/Header';
 import { BaseLayout } from 'components/templates/BaseLayout';
 
-export const App = () => {
+export const Checkout = () => {
   return (
     <BaseLayout
       header={<Header />}
-      main={<div className="container mx-auto">App Component</div>}
-    ></BaseLayout>
+      main={<div className="container mx-auto">Checkout</div>}
+    />
   );
 };
