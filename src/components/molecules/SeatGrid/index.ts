@@ -1,0 +1,1 @@
+export { SeatGrid } from './SeatGrid';

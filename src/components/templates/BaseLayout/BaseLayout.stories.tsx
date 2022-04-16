@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Header } from 'components/organisms/Header';
-import { BaseImage } from 'types';
 import { BrowserRouter } from 'react-router-dom';
 
 import { BaseLayout } from '.';
@@ -14,11 +13,11 @@ const images = [
     description: 'A man drinking a coffee.',
     src: 'https://images.unsplash.com/photo-1472457974886-0ebcd59440cc?q=75&fm=jpg&w=1080&fit=max',
   },
-] as BaseImage[];
+] as any[];
 
 const sampleImages = images.reduce(
   (acc, img) => [...acc, img, img, img, img],
-  [] as BaseImage[],
+  [] as any[],
 );
 export default {
   title: 'Templates/BaseLayout',

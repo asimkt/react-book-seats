@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ISeatState } from 'types';
 
 import { Seat } from '.';
-import { SeatState } from './Seat';
 
 export default {
   title: 'Atoms/Seat',
@@ -12,21 +12,21 @@ const Template: ComponentStory<typeof Seat> = args => <Seat {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  state: SeatState.Vacant,
+  state: ISeatState.Vacant,
 };
 export const Disabled = Template.bind({});
 Disabled.args = {
-  state: SeatState.Disabled,
+  state: ISeatState.Disabled,
 };
 export const Selected = Template.bind({});
 Selected.args = {
-  state: SeatState.Selected,
+  state: ISeatState.Selected,
 };
 export const Reserved = Template.bind({});
 Reserved.args = {
-  state: SeatState.Reserved,
+  state: ISeatState.Reserved,
 };
 export const NotApplicable = Template.bind({});
 NotApplicable.args = {
-  state: SeatState.NotApplicable,
+  state: ISeatState.NotApplicable,
 };
