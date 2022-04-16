@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ImageGrid } from 'components/molecules/ImageGrid';
 import { Header } from 'components/organisms/Header';
 import { BaseImage } from 'types';
 import { BrowserRouter } from 'react-router-dom';
@@ -44,5 +43,5 @@ Default.args = {
 export const WithComponents = Template.bind({});
 WithComponents.args = {
   header: <Header />,
-  main: <ImageGrid images={sampleImages} />,
+  main: <SMain />,
 };
