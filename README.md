@@ -1,3 +1,19 @@
+# React Bookmyseat App
+
+BookMySeats helps theatres, music shows, conference admins to setup a seat booking mechanism, it have 3 routes:
+### admin (/) route 
+Where user can configure the props of our main component.
+Ideally this data would be coming from another service, I only
+added sane defaults and minimal validation. The actual flow as per
+the assignment starts at `/book` and `/checkout` route.
+
+### book (/book) route 
+Where user will be able to book their seats. Business logics and validations are available here. There's a button to mock a realtime event 
+ also here.
+
+### checkout (/checkout) route 
+After selecting seats, user can checkout and pay the amount before the configured timer runs out.
+
 # React | Typescript | Prettier | Lint-staged | Storybook | Atomic Design | ServiceWorker | React query | Tailwind
 
 
