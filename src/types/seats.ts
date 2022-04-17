@@ -10,7 +10,7 @@ export enum ISeatState {
   NotApplicable = 'NotApplicable',
 }
 
-interface ISeat {
+export interface ISeat {
   state: ISeatState;
   disabled?: boolean;
 }

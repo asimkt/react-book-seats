@@ -1,4 +1,4 @@
-import { ISeatRow } from 'types';
+import { ISeat, ISeatRow } from 'types';
 
 type iPosition = number | string;
 type jPosition = number | string;
@@ -16,6 +16,7 @@ export type BookSeatState = {
   seatsData: ISeatRow[];
   selectedSeats: SelectedSeat[];
   setSeatsData: (data: ISeatRow[]) => void;
+  updateSeatsData: (seatsData: ISeat, position: [number, number]) => void;
   setTimer: (time: Time) => void;
   setTimerLimit: (limit: Time) => void;
   onSelectSeats: (seat: SelectedSeat) => void;
