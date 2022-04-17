@@ -8,9 +8,12 @@ export type SelectedSeat = {
   rowName: string;
 };
 
+type Time = number | null;
 export type BookSeatState = {
+  secondsTimer: Time;
   seatsData: ISeatRow[];
   selectedSeats: SelectedSeat[];
+  setTimer: (time: Time) => void;
   onSelectSeats: (seat: SelectedSeat) => void;
   onClearAllSelected: () => void;
 };

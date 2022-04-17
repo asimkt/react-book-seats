@@ -3,8 +3,10 @@ import create from 'zustand';
 import { BookSeatState, SelectedSeat } from './types';
 
 export const useStore = create<BookSeatState>(set => ({
+  secondsTimer: null,
   seatsData: dummySeatsData,
   selectedSeats: [] as SelectedSeat[],
+  setTimer: (timer: number | null) => set({ secondsTimer: timer }),
   onSelectSeats: seat =>
     set(state => {
       // add seat if not present, otherwise remove

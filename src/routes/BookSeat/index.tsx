@@ -3,18 +3,28 @@ import { SeatGrid } from 'components/molecules/SeatGrid';
 import { Header } from 'components/organisms/Header';
 import { BaseLayout } from 'components/templates/BaseLayout';
 import { SeatPosition, useStore } from 'hooks';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const BookSeatComp = () => {
   const seatsData = useStore(state => state.seatsData);
   const selectedSeats = useStore(state => state.selectedSeats);
   const updateSelectedSeats = useStore(state => state.onSelectSeats);
+  const updateTimer = useStore(state => state.setTimer);
 
   const onSeatSelection = (position: SeatPosition, rowName: string) => {
     updateSelectedSeats({
       position,
       rowName,
     });
+  };
+
+  const navigate = useNavigate();
+
+  const onPayNavigate = () => {
+    const ONEMIN3_SECONDS_IN_MS = 6 * 1000;
+
+    updateTimer(ONEMIN3_SECONDS_IN_MS);
+    navigate('/checkout');
   };
 
   return (
@@ -53,9 +63,12 @@ const BookSeatComp = () => {
                 </div>
               </div>
               <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <Link to="/checkout">
-                  <Button>Pay</Button>
-                </Link>
+                <Button
+                  onClick={onPayNavigate}
+                  disabled={Boolean(!selectedSeats.length)}
+                >
+                  Pay
+                </Button>
               </div>
             </div>
           </div>
