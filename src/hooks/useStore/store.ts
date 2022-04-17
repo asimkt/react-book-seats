@@ -1,11 +1,15 @@
 import { dummySeatsData } from 'components/molecules/SeatGrid/dummy';
+import { ISeatRow } from 'types';
 import create from 'zustand';
 import { BookSeatState, SelectedSeat } from './types';
 
 export const useStore = create<BookSeatState>(set => ({
   secondsTimer: null,
+  timerLimit: null,
   seatsData: dummySeatsData,
   selectedSeats: [] as SelectedSeat[],
+  setSeatsData: (seatsData: ISeatRow[]) => set({ seatsData }),
+  setTimerLimit: (limit: number | null) => set({ timerLimit: limit }),
   setTimer: (timer: number | null) => set({ secondsTimer: timer }),
   onSelectSeats: seat =>
     set(state => {

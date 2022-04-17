@@ -11,10 +11,13 @@ export type SelectedSeat = {
 
 type Time = number | null;
 export type BookSeatState = {
+  timerLimit: number | null;
   secondsTimer: Time;
   seatsData: ISeatRow[];
   selectedSeats: SelectedSeat[];
+  setSeatsData: (data: ISeatRow[]) => void;
   setTimer: (time: Time) => void;
+  setTimerLimit: (limit: Time) => void;
   onSelectSeats: (seat: SelectedSeat) => void;
   onClearAllSelected: () => void;
 };

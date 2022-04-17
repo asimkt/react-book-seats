@@ -34,7 +34,10 @@ export const SeatGrid = ({
       <div className="gap-3 flex flex-col">
         {seatsData.map((row, i) => {
           return (
-            <div className="flex gap-4 items-center">
+            <div
+              className="flex gap-4 items-center"
+              key={i + '-' + row.rowName}
+            >
               <div className="w-32 text-center text-slate-500 font-thin text-sm">
                 {row.rowName}
               </div>
@@ -45,6 +48,7 @@ export const SeatGrid = ({
                       selected={Boolean(
                         isSeatSelected(getPositionIndexes(i, j)),
                       )}
+                      key={j}
                       state={seat.state}
                       hidden={seat.disabled}
                       position={getPositionIndexes(i, j)}

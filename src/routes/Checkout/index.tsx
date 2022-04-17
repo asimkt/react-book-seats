@@ -67,7 +67,10 @@ const CheckoutComp = () => {
       <div className="flex gap-x-2 gap-y-3  justify-center">
         {selectedSeats.map(seat => {
           return (
-            <div className="w-10 h-16 rounded overflow-hidden border-2 flex justify-center items-center text-slate-500 text-sm bg-blue-100 border-blue-200">
+            <div
+              className="w-10 h-16 rounded overflow-hidden border-2 flex justify-center items-center text-slate-500 text-sm bg-blue-100 border-blue-200"
+              key={seat.rowName}
+            >
               {seat.rowName}
               {seat.position[1]}
             </div>

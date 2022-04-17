@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const BookSeatComp = () => {
   const seatsData = useStore(state => state.seatsData);
+  const timeLimit = useStore(state => state.timerLimit);
   const selectedSeats = useStore(state => state.selectedSeats);
   const updateSelectedSeats = useStore(state => state.onSelectSeats);
   const updateTimer = useStore(state => state.setTimer);
@@ -30,9 +31,9 @@ const BookSeatComp = () => {
   const navigate = useNavigate();
 
   const onPayNavigate = () => {
-    const ONEMIN3_SECONDS_IN_MS = 600 * 1000;
+    console.log(timeLimit);
 
-    updateTimer(ONEMIN3_SECONDS_IN_MS);
+    updateTimer(timeLimit);
     navigate('/checkout');
   };
 
