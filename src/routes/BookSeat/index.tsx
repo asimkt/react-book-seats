@@ -11,17 +11,26 @@ const BookSeatComp = () => {
   const updateSelectedSeats = useStore(state => state.onSelectSeats);
   const updateTimer = useStore(state => state.setTimer);
 
-  const onSeatSelection = (position: SeatPosition, rowName: string) => {
+  const onSeatSelection = ({
+    position,
+    rowName,
+    price,
+  }: {
+    position: SeatPosition;
+    rowName: string;
+    price: number;
+  }) => {
     updateSelectedSeats({
       position,
       rowName,
+      price,
     });
   };
 
   const navigate = useNavigate();
 
   const onPayNavigate = () => {
-    const ONEMIN3_SECONDS_IN_MS = 6 * 1000;
+    const ONEMIN3_SECONDS_IN_MS = 600 * 1000;
 
     updateTimer(ONEMIN3_SECONDS_IN_MS);
     navigate('/checkout');

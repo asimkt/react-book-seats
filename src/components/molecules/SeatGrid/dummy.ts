@@ -3,7 +3,8 @@ import { ISeatRowType, ISeatState } from 'types';
 export const dummySeatsData = [
   {
     type: ISeatRowType.Premium,
-    price: '₹1000',
+    priceLabel: '₹1000',
+    priceVal: 1000,
     rowName: 'A',
     rowSeats: [
       {
@@ -33,7 +34,8 @@ export const dummySeatsData = [
   },
   {
     type: ISeatRowType.Normal,
-    price: '₹750',
+    priceLabel: '₹750',
+    priceVal: 750,
 
     rowName: 'C',
     rowSeats: [
@@ -62,7 +64,8 @@ export const dummySeatsData = [
   },
   {
     type: ISeatRowType.Normal,
-    price: '₹750',
+    priceLabel: '₹750',
+    priceVal: 750,
     rowName: 'D',
     rowSeats: [
       {

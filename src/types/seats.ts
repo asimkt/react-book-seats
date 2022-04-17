@@ -17,7 +17,8 @@ interface ISeat {
 
 export interface ISeatRow {
   type: ISeatRowType;
-  price: string;
+  priceLabel: string;
+  priceVal: number;
   rowName: string;
   rowSeats: ISeat[];
 }

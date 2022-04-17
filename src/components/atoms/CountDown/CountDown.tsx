@@ -27,7 +27,7 @@ export const CountdownTimer = ({
   }
 
   return (
-    <div className="group relative py-2 px-3 flex items-center justify-center font-medium font-mono uppercase bg-white text-gray-900 cursor-pointer text-2xl">
+    <div className="group relative py-2 px-3 flex items-center justify-center font-medium font-mono uppercase text-gray-900 cursor-pointer text-2xl">
       {showHoursDays ? (
         <>
           <DateTimeDisplay value={days} />

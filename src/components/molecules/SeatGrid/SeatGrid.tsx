@@ -3,8 +3,16 @@ import { SeatPosition, SelectedSeat } from 'hooks';
 import { ISeatRow } from 'types';
 interface Props {
   seatsData: ISeatRow[];
-  onSeatSelection: (position: SeatPosition, rowName: string) => void;
   selectedSeats: SelectedSeat[];
+  onSeatSelection: ({
+    position,
+    rowName,
+    price,
+  }: {
+    position: SeatPosition;
+    rowName: string;
+    price: number;
+  }) => void;
 }
 
 const getPositionIndexes = (i: number, j: number) =>
@@ -12,13 +20,9 @@ const getPositionIndexes = (i: number, j: number) =>
 
 export const SeatGrid = ({
   seatsData,
-  onSeatSelection,
   selectedSeats,
+  onSeatSelection,
 }: Props) => {
-  const onSeatSelect = (position: SeatPosition, rowName: string) => {
-    onSeatSelection(position, rowName);
-  };
-
   const isSeatSelected = ([i, j]: SeatPosition) => {
     return selectedSeats.find(
       seat => seat.position[0] === i && seat.position[1] === j,
@@ -44,13 +48,19 @@ export const SeatGrid = ({
                       state={seat.state}
                       hidden={seat.disabled}
                       position={getPositionIndexes(i, j)}
-                      onClick={position => onSeatSelect(position, row.rowName)}
+                      onClick={position =>
+                        onSeatSelection({
+                          position,
+                          rowName: row.rowName,
+                          price: row.priceVal,
+                        })
+                      }
                     />
                   );
                 })}
               </div>
               <div className="w-32 text-center text-slate-500 font-thin text-sm">
-                {row.price}
+                {row.priceLabel}
               </div>
             </div>
           );

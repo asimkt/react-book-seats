@@ -6,6 +6,7 @@ export type SeatPosition = [iPosition, jPosition];
 export type SelectedSeat = {
   position: SeatPosition;
   rowName: string;
+  price: number;
 };
 
 type Time = number | null;
