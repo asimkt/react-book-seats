@@ -30,7 +30,7 @@ export const SeatGrid = ({
   };
 
   return (
-    <div className="flex px-4 py-6">
+    <div className="flex px-4 py-6 overflow-auto">
       <div className="gap-3 flex flex-col">
         {seatsData.map((row, i) => {
           return (
