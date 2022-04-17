@@ -6,7 +6,18 @@ export enum ISeatRowType {
 export enum ISeatState {
   Vacant = 'Vacant',
   Disabled = 'Disabled',
-  Selected = 'Selected',
   Reserved = 'Reserved',
   NotApplicable = 'NotApplicable',
+}
+
+interface ISeat {
+  state: ISeatState;
+  disabled?: boolean;
+}
+
+export interface ISeatRow {
+  type: ISeatRowType;
+  price: string;
+  rowName: string;
+  rowSeats: ISeat[];
 }

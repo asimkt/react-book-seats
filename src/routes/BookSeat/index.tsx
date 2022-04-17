@@ -1,11 +1,22 @@
 import { Button } from 'components/atoms/Button';
 import { SeatGrid } from 'components/molecules/SeatGrid';
-import { dummySeatsData } from 'components/molecules/SeatGrid/dummy';
 import { Header } from 'components/organisms/Header';
 import { BaseLayout } from 'components/templates/BaseLayout';
+import { SeatPosition, useStore } from 'hooks';
 import { Link } from 'react-router-dom';
 
 const BookSeatComp = () => {
+  const seatsData = useStore(state => state.seatsData);
+  const selectedSeats = useStore(state => state.selectedSeats);
+  const updateSelectedSeats = useStore(state => state.onSelectSeats);
+
+  const onSeatSelection = (position: SeatPosition, rowName: string) => {
+    updateSelectedSeats({
+      position,
+      rowName,
+    });
+  };
+
   return (
     <div className="container mx-auto">
       <div className="md:grid md:grid-cols-3 md:gap-6">
@@ -29,7 +40,11 @@ const BookSeatComp = () => {
                   </div>
                   <div className="mt-1">
                     <div>
-                      <SeatGrid seatsData={dummySeatsData} />
+                      <SeatGrid
+                        seatsData={seatsData}
+                        onSeatSelection={onSeatSelection}
+                        selectedSeats={selectedSeats}
+                      />
                     </div>
                   </div>
                   <p className="mt-2 text-sm text-gray-500">

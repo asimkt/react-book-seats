@@ -41,7 +41,7 @@ export const dummySeatsData = [
         state: ISeatState.Vacant,
       },
       {
-        state: ISeatState.Selected,
+        state: ISeatState.Vacant,
       },
       {
         state: ISeatState.Reserved,

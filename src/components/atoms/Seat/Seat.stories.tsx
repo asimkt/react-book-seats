@@ -18,10 +18,6 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   state: ISeatState.Disabled,
 };
-export const Selected = Template.bind({});
-Selected.args = {
-  state: ISeatState.Selected,
-};
 export const Reserved = Template.bind({});
 Reserved.args = {
   state: ISeatState.Reserved,

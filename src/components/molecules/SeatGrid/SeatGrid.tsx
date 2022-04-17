@@ -1,29 +1,30 @@
 import { Seat } from 'components/atoms/Seat';
-import { ISeatRowType, ISeatState } from 'types';
-
-interface ISeat {
-  state: ISeatState;
-  disabled?: boolean;
-}
-
-interface ISeatRow {
-  type: ISeatRowType;
-  price: string;
-  rowName: string;
-  rowSeats: ISeat[];
-}
-
+import { SeatPosition, SelectedSeat } from 'hooks';
+import { ISeatRow } from 'types';
 interface Props {
   seatsData: ISeatRow[];
+  onSeatSelection: (position: SeatPosition, rowName: string) => void;
+  selectedSeats: SelectedSeat[];
 }
 
-export const SeatGrid = ({ seatsData }: Props) => {
-  const onSeatSelect = (
-    position: [number | string, number | string],
-    rowName: string,
-  ) => {
-    console.log(position, rowName);
+const getPositionIndexes = (i: number, j: number) =>
+  [i + 1, j + 1] as SeatPosition;
+
+export const SeatGrid = ({
+  seatsData,
+  onSeatSelection,
+  selectedSeats,
+}: Props) => {
+  const onSeatSelect = (position: SeatPosition, rowName: string) => {
+    onSeatSelection(position, rowName);
   };
+
+  const isSeatSelected = ([i, j]: SeatPosition) => {
+    return selectedSeats.find(
+      seat => seat.position[0] === i && seat.position[1] === j,
+    );
+  };
+
   return (
     <div className="flex px-4 py-6">
       <div className="gap-3 flex flex-col">
@@ -37,9 +38,12 @@ export const SeatGrid = ({ seatsData }: Props) => {
                 {row.rowSeats.map((seat, j) => {
                   return (
                     <Seat
+                      selected={Boolean(
+                        isSeatSelected(getPositionIndexes(i, j)),
+                      )}
                       state={seat.state}
                       hidden={seat.disabled}
-                      position={[i + 1, j + 1]}
+                      position={getPositionIndexes(i, j)}
                       onClick={position => onSeatSelect(position, row.rowName)}
                     />
                   );
