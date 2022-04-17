@@ -15,4 +15,6 @@ const Template: ComponentStory<typeof SeatGrid> = args => (
 export const Default = Template.bind({});
 Default.args = {
   seatsData: dummySeatsData,
+  selectedSeats: [],
+  onSeatSelection: () => null,
 };
