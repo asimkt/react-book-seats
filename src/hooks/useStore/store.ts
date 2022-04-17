@@ -1,9 +1,9 @@
 import { dummySeatsData } from 'components/molecules/SeatGrid/dummy';
 import { ISeat, ISeatRow } from 'types';
 import create from 'zustand';
-import { BookSeatState, SelectedSeat } from './types';
+import { BookMySeatstate, SelectedSeat } from './types';
 
-export const useStore = create<BookSeatState>(set => ({
+export const useStore = create<BookMySeatstate>(set => ({
   secondsTimer: null,
   timerLimit: null,
   seatsData: dummySeatsData,

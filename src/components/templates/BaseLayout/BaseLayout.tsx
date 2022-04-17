@@ -18,7 +18,7 @@ export const BaseLayout = ({ header, main }: Props) => {
             className="text-xl font-bold text-gray-500 hover:text-gray-400"
           >
             {' '}
-            BookSeats
+            BookMySeats
           </Link>
           <p className="py-2 text-gray-500 sm:py-0">All rights reserved</p>
         </div>

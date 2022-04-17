@@ -10,7 +10,7 @@ export type SelectedSeat = {
 };
 
 type Time = number | null;
-export type BookSeatState = {
+export type BookMySeatstate = {
   timerLimit: number | null;
   secondsTimer: Time;
   seatsData: ISeatRow[];

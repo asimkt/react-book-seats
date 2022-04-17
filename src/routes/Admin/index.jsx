@@ -78,8 +78,19 @@ const AdminApp = () => {
     <>
       <div className="mt-10">
         <div className="md:grid ">
+          <div className="mt-5 md:mt-0 text-slate-600 text-sm py-6 border-2 bg-green-200 border-green-300 shadow-sm p-4 my-6">
+            <p>
+              BookMySeats have 3 routes. This is the <b>admin</b> route where
+              user can configure the props of our main component.
+            </p>
+            <p>
+              Ideally this data would be coming from another service, I only
+              added sane defaults and minimal validation. The actual flow as per
+              the assignment starts at `/book` and `/checkout` route.
+            </p>
+          </div>
           <div className="mt-5 md:mt-0">
-            <form action="#" method="POST">
+            <form>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
@@ -95,8 +106,8 @@ const AdminApp = () => {
                         onChange={onRowsFieldChange}
                       />
                       <p className="mt-2 text-sm text-gray-500">
-                        Please add total rows and cols of the seats available.
-                        Max 26 rows (A-Z) and 99 cols.
+                        Total rows and cols of the seats available. Max 26 Rows
+                        (A-Z) and 99 Cols.
                       </p>
                     </div>
 
@@ -164,15 +175,15 @@ const AdminApp = () => {
                           </label>
                           <input
                             type="text"
-                            placeholder="1,5,7"
+                            placeholder="Comma seperated values like 1,5,7 supported"
                             className="mt-1 py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             onChange={e =>
                               onDisabledSeatsChange(val, e.target.value)
                             }
                           />
                           <p className="mt-2 text-sm text-gray-500">
-                            Seats which are not present actually (Use this for
-                            styling the layout)
+                            Seats which are not present (Use this for
+                            controlling the layout)
                           </p>
                         </div>
 
@@ -182,15 +193,15 @@ const AdminApp = () => {
                           </label>
                           <input
                             type="text"
-                            placeholder="4,5,10"
+                            placeholder="4,5,10 etc"
                             className="mt-1 py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             onChange={e =>
                               onSoldSeatsChange(val, e.target.value)
                             }
                           />
                           <p className="mt-2 text-sm text-gray-500">
-                            Seats which are already reserved. This data also
-                            would be coming from BE
+                            Seats which are already reserved. (This data also
+                            would be coming from BE and won't be configurable)
                           </p>
                         </div>
                       </div>
